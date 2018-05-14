@@ -10,20 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 初始版，比较简单，现已换成新的
+ * simple version
  * Created by zjy on 2017/8/16.
- * LinearLayout的适配器
+ * LinearLayout adapter
  */
 
 public class LinearListHelper {
-
-    /**
-     * 模仿RecyclerView的适配器模式，动态对LinearLayout添加子布局
-     * 因为RecyclerView和ListView都有滑动冲突问题，只用简单的LinearLayout嵌套ScrollView可以方便定义一些简单的滑动效果
-     *
-     * @param layout  被当成ListView用的LinearLayout
-     * @param adapter adapter
-     */
     public static void setAdapter(LinearLayout layout, LinearAdapter adapter) {
         layout.removeAllViews();
         for (int i = 0; i < adapter.getItemCount(); i++) {
@@ -54,12 +46,6 @@ public class LinearListHelper {
         }
     }
 
-    /**
-     * 单一元素的Adapter，减少更多样板代码
-     *
-     * @param <VH> 自己的ViewHolder
-     * @param <T>  数据类泛型
-     */
     public static abstract class SimpleLinearAdapter<VH extends ViewHolder, T> extends LinearAdapter<VH> {
         private final LinearLayout mParent;
         protected List<T> mDataSet = new ArrayList<>();

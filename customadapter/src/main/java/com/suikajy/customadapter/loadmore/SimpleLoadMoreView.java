@@ -4,7 +4,6 @@ import com.suikajy.customadapter.R;
 
 /**
  * @author zjy
- * @date 2018/5/4
  */
 public final class SimpleLoadMoreView extends LoadMoreView {
 

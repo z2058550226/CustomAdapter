@@ -8,7 +8,6 @@ import com.suikajy.customadapter.BCViewHolder;
 
 /**
  * @author zjy
- * @date 2018/5/4
  */
 public abstract class LoadMoreView {
     public static final int STATUS_DEFAULT = 1;

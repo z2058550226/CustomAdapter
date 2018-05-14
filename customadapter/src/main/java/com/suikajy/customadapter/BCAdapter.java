@@ -33,7 +33,6 @@ import java.util.List;
 
 /**
  * @author zjy
- * @date 2018/5/4
  */
 public abstract class BCAdapter<T, K extends BCViewHolder> {
 
@@ -87,9 +86,6 @@ public abstract class BCAdapter<T, K extends BCViewHolder> {
         notifyDataSetChanged();
     }
 
-    /**
-     * 删除所有子View，并重新添加，这时会进行空布局和加载更多布局的显示判断
-     */
     public void notifyDataSetChanged() {
         checkNotNull();
         ViewGroup parent = getParent();
@@ -104,7 +100,6 @@ public abstract class BCAdapter<T, K extends BCViewHolder> {
     public void notifyItemChanged(int position) {
         checkNotNull();
         ViewGroup parent = getParent();
-        // TODO: 2018/5/4 局部更新item
         View changedItemView = parent.getChildAt(position);
         changedItemView.requestLayout();
 //        parent.removeViewAt(position);
@@ -158,13 +153,6 @@ public abstract class BCAdapter<T, K extends BCViewHolder> {
 
     /**
      * check if full page after {@link #setNewData(List)}, if full, it will enable load more again.
-     * <p>
-     * 不是配置项！！
-     * <p>
-     * 这个方法是用来检查是否满一屏的，所以只推荐在 {@link #setNewData(List)} 之后使用
-     * 原理很简单，先关闭 load more，检查完了再决定是否开启
-     * <p>
-     * 不是配置项！！
      *
      * @param parent your parent
      * @see #setNewData(List)
@@ -928,12 +916,12 @@ public abstract class BCAdapter<T, K extends BCViewHolder> {
 
     /**
      * Add header view to mHeaderLayout and set header view position in mHeaderLayout.
-     * When index = -1 or index >= child count in mHeaderLayout,
+     * When index = -1 or index is bigger than child count in mHeaderLayout,
      * the effect of this method is the same as that of {@link #addHeaderView(View)}.
      *
      * @param header
      * @param index  the position in mHeaderLayout of this header.
-     *               When index = -1 or index >= child count in mHeaderLayout,
+     *               When index = -1 or index is bigger than child count in mHeaderLayout,
      *               the effect of this method is the same as that of {@link #addHeaderView(View)}.
      */
     public int addHeaderView(View header, int index) {
@@ -1003,12 +991,12 @@ public abstract class BCAdapter<T, K extends BCViewHolder> {
 
     /**
      * Add footer view to mFooterLayout and set footer view position in mFooterLayout.
-     * When index = -1 or index >= child count in mFooterLayout,
+     * When index = -1 or index is bigger than child count in mFooterLayout,
      * the effect of this method is the same as that of {@link #addFooterView(View)}.
      *
      * @param footer
      * @param index  the position in mFooterLayout of this footer.
-     *               When index = -1 or index >= child count in mFooterLayout,
+     *               When index = -1 or index is bigger than child count in mFooterLayout,
      *               the effect of this method is the same as that of {@link #addFooterView(View)}.
      */
     public int addFooterView(View footer, int index, int orientation) {

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 初始版，比较简单，现已换成新的
+ * Simple version
  * Created by zjy on 2017/8/21.
- * GridLayout的适配器
+ * GridLayout
  */
 public class GridListHelper {
 
@@ -46,12 +46,6 @@ public class GridListHelper {
         }
     }
 
-    /**
-     * 单一元素的Adapter，减少更多样板代码
-     *
-     * @param <VH> 自己的ViewHolder
-     * @param <T>  数据类泛型
-     */
     public static abstract class SimpleGridAdapter<VH extends GridListHelper.ViewHolder, T> extends GridAdapter<VH> {
         protected final GridLayout mParent;
         protected List<T> mDataSet = new ArrayList<>();

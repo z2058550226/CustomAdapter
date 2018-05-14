@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * @author zjy
- * @date 2018/5/4
  */
 public abstract class BCMultiItemAdapter<T extends MultiEntity, K extends BCViewHolder> extends BCAdapter<T, K> {
 

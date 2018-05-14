@@ -6,7 +6,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -32,7 +32,7 @@ publish {
     userOrg = 'suika'
     groupId = 'com.suika'
     artifactId = 'CustomAdapter'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = '将LinearLayout或GridLayout变成ListView的一款邪教Adapter 仿照BaseQuickAdapter的写法，只不过把界面更新的逻辑全部替换成了addView系列的方法'
     website = 'https://github.com/z2058550226/CustomAdapter'
 }

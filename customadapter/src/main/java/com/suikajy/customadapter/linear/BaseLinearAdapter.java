@@ -13,7 +13,6 @@ import java.util.List;
 
 /**
  * @author zjy
- * @date 2018/5/4
  */
 public abstract class BaseLinearAdapter<T, VH extends BCViewHolder> extends BCAdapter<T, VH> {
 
