@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.novoda.bintray-release'
+
 android {
     compileSdkVersion 27
 
@@ -22,6 +24,15 @@ android {
 
 }
 
-dependencies {
+dependencies{
     implementation 'com.android.support:appcompat-v7:27.1.1'
+}
+
+publish {
+    userOrg = 'suika'
+    groupId = 'com.suika'
+    artifactId = 'CustomAdapter'
+    publishVersion = '1.0.0'
+    desc = '将LinearLayout或GridLayout变成ListView的一款邪教Adapter 仿照BaseQuickAdapter的写法，只不过把界面更新的逻辑全部替换成了addView系列的方法'
+    website = 'https://github.com/z2058550226/CustomAdapter'
 }
