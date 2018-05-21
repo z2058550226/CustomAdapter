@@ -310,7 +310,7 @@ public abstract class BCAdapter<T, K extends BCViewHolder> {
             notifyItemRemoved(getLoadMoreViewPosition());
         } else {
             mLoadMoreView.setLoadMoreStatus(LoadMoreView.STATUS_END);
-            notifyItemRemoved(getLoadMoreViewPosition());
+            notifyItemChanged(getLoadMoreViewPosition());
         }
     }
 
