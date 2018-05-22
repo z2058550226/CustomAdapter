@@ -14,8 +14,7 @@
 
 使用案例(app 那个module就是demo)：
 
-`
-class MainActivity : AppCompatActivity() {
+`class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,5 +66,4 @@ class MainActivity : AppCompatActivity() {
             return view as T
         }
     }
-}
-`
+}`
