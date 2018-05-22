@@ -12,21 +12,60 @@
 ## 使用方法
 和[BaseRecyclerViewAdapterHelper库](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)的使用方式一样,只不过基于LinearLayout或者GridLayout
 
-Adapter:
+使用案例(app 那个module就是demo)：
 
-`待ってください`
+`
+class MainActivity : AppCompatActivity() {
 
-Activity or Fragment:
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-`待ってください`
+        val linearAdapter = MyLinearAdapter(R.layout.item_linear)
+        linearAdapter.bindToAdaptedView(list_linear)
 
-刷新或加载第一页：
+        val listData1 = arrayListOf("java", "python", "php", "lua", "c++", "swift")
+        linearAdapter.setNewData(listData1)
+        val listData2 = arrayListOf("Android", "AI", "server", "game", "framework", "ios")
+        linearAdapter.addData(listData2)
+        linearAdapter.loadMoreEnd()
 
-`待ってください`
+        val gridAdapter = MyGridAdapter(this, grid_bottom)
+        GridListHelper.setAdapter(grid_bottom,gridAdapter)
+        val gridData1 = arrayListOf("泉こなた", "泉此方", "いずみこなた", "i zu mi ko na ta", "泉こなた", "泉こなた", "泉こなた", "泉こなた", "泉こなた", "泉こなた", "泉こなた", "泉こなた", "泉こなた", "泉こなた")
+        gridAdapter.refreshData(gridData1)
+        val gridData2 = arrayListOf("柊？")
+        gridAdapter.loadMore(gridData2)
+    }
 
-上拉加载：
+    class MyLinearAdapter(layoutResId: Int) : BaseLinearAdapter<String, BCViewHolder>(layoutResId) {
 
-`待ってください`
+        override fun convert(helper: BCViewHolder, item: String) {
+            helper.setText(R.id.tv_content, item)
+            helper.setText(R.id.tv_num, "No.${helper.adapterPosition}")
 
+        }
+    }
 
+    class MyGridAdapter(context: Context, gridLayout: GridLayout) : GridListHelper.SimpleGridAdapter<MyGridViewHolder, String>(context, gridLayout) {
+        override fun onCreateViewHolder(parent: GridLayout?, type: Int): MyGridViewHolder {
+            return MyGridViewHolder(inflate(R.layout.item_grid))
+        }
 
+        @SuppressLint("SetTextI18n")
+        override fun onSimpleBindView(holder: MyGridViewHolder?, t: String?, position: Int) {
+            val tvName = holder!!.getView<TextView>(R.id.tv_name)
+            tvName.text = "$t No.$position"
+        }
+    }
+
+    class MyGridViewHolder(itemView: View) : GridListHelper.ViewHolder(itemView) {
+
+        @Suppress("UNCHECKED_CAST")
+        fun <T : View> getView(@IdRes viewId: Int): T {
+            val view: View = itemView.findViewById(viewId)
+            return view as T
+        }
+    }
+}
+`
