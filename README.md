@@ -9,12 +9,19 @@
 和[BaseRecyclerViewAdapterHelper库](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)的使用方式一样,只不过基于LinearLayout或者GridLayout
 
 Adapter:
+
 `待ってください`
+
 Activity or Fragment:
+
 `待ってください`
+
 刷新或加载第一页：
+
 `待ってください`
+
 上拉加载：
+
 `待ってください`
 
 
